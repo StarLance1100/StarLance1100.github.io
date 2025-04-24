@@ -65,7 +65,7 @@
       color: #ffdf7e;
       font-size: 1.8em;
       padding-bottom: 10px;
-      text-align: center;
+      text-align: center; /* Centering the headers */
     }
 
     .ip-box {
@@ -174,10 +174,12 @@
       star.style.left = `${positionX}px`;
       star.style.top = `${positionY}px`;
 
-      const twinkleDuration = Math.random() * 5 + 2;  // Increased duration to make the twinkle slower
-      const delayDuration = Math.random() * 2 + 1;
+      // Randomize the animation duration for each star
+      const twinkleDuration = Math.random() * 4 + 4;  // Values between 4s and 8s
+      const twinkleDelay = Math.random() * 2 + 1;     // Random delay between 1 and 3 seconds
 
-      star.style.animation = `twinkle ${twinkleDuration}s ${delayDuration}s infinite alternate`;
+      // Start stars at opacity 1, and then twinkle
+      star.style.animation = `twinkle ${twinkleDuration}s ${twinkleDelay}s infinite alternate`;
 
       starField.appendChild(star);
     }
@@ -194,9 +196,9 @@
     const styleSheet = document.styleSheets[0];
     styleSheet.insertRule(`
       @keyframes twinkle {
-        0% { opacity: 0; }
+        0% { opacity: 0.5; }
         50% { opacity: 1; }
-        100% { opacity: 0; }
+        100% { opacity: 0.5; }
       }
     `, styleSheet.cssRules.length);
   </script>
