@@ -65,7 +65,7 @@
       color: #ffdf7e;
       font-size: 1.8em;
       padding-bottom: 10px;
-      text-align: center; /* Centering the headers */
+      text-align: center;
     }
 
     .ip-box {
@@ -174,7 +174,7 @@
       star.style.left = `${positionX}px`;
       star.style.top = `${positionY}px`;
 
-      const twinkleDuration = Math.random() * 3 + 1;
+      const twinkleDuration = Math.random() * 5 + 2;  // Increased duration to make the twinkle slower
       const delayDuration = Math.random() * 2 + 1;
 
       star.style.animation = `twinkle ${twinkleDuration}s ${delayDuration}s infinite alternate`;
