@@ -16,7 +16,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: none; /* Remove any background color */
+      background: none;
       font-family: 'Segoe UI', sans-serif;
       color: #f0f0f0;
     }
@@ -44,7 +44,7 @@
     .container {
       max-width: 800px;
       padding: 20px;
-      background-color: transparent; /* Make the container completely transparent */
+      background-color: transparent;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
       position: relative;
@@ -64,20 +64,18 @@
     .section h2 {
       color: #ffdf7e;
       font-size: 1.8em;
-      border-bottom: 1px solid #555;
       padding-bottom: 10px;
+      /* Removed the border-bottom line */
     }
 
-    /* Transparent IP Box with no border */
     .ip-box {
-      background-color: transparent; /* Make the IP box transparent */
+      background-color: transparent;
       padding: 15px;
       border-radius: 8px;
       text-align: center;
       font-size: 1.4em;
       letter-spacing: 1px;
       margin-top: 10px;
-      /* Removed the border property */
     }
 
     a {
@@ -88,11 +86,46 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* Mobile-Friendly Styling */
+    @media (max-width: 767px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 10px;
+        margin: 0 auto;
+        max-width: 95%;
+      }
+
+      h1 {
+        font-size: 3.8em;
+      }
+
+      .section h2 {
+        font-size: 2.7em;
+      }
+
+      .section {
+        margin: 25px 0;
+      }
+
+      .ip-box {
+        font-size: 2.2em;
+        padding: 20px;
+      }
+
+      p {
+        font-size: 1.7em;
+        line-height: 1.5;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="background"></div> <!-- Starry Background Div -->
-  
+  <div class="background"></div>
+
   <div class="container">
     <h1>Rogue Worship Leader Minecraft</h1>
 
