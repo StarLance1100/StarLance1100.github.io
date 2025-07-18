@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Until We Are Reunited</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #00ffcc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .countdown {
+      font-size: 2em;
+      font-weight: bold;
+      word-spacing: 0.2em;
+    }
+
+    @media (max-width: 600px) {
+      .countdown {
+        font-size: 1.5em;
+      }
+
+      h1 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1><span id="countdown"></span> until we are reunited</h1>
+
+  <script>
+    // Target date in Central Time (CDT/CST)
+    const centralTimeOffset = -5 * 60; // CDT (UTC-5); use -6 * 60 for CST in winter
+    const targetDateUTC = new Date("2025-08-08T04:33:00Z").getTime(); // 11:33 PM CT == 04:33 UTC
+
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const nowUTC = new Date().getTime();
+      const distance = targetDateUTC - nowUTC;
+
+      if (distance <= 0) {
+        countdownEl.textContent = "🎉 It's time!";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const milliseconds = distance % 1000;
+
+      countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
+    }
+
+    const timer = setInterval(updateCountdown, 50);
+    updateCountdown();
+  </script>
+</body>
+</html>
 
